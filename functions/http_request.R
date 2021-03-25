@@ -24,10 +24,6 @@ http_request <- function(user_name, social_media)
   else if(social_media == "github"){
     http_call <- httr::GET(paste0("https://github.com/",user_name))
   }
-  # chess
-  else if(social_media == "chess"){
-    http_call <- httr::GET(paste0("https://www.chess.com/member/",user_name))
-  }
 
   # RETURN STATUS CODE
   return(http_call$status_code)
