@@ -6,7 +6,7 @@
 # OUTPUT
 # 200: if the page exists
 # 404: if the page doesn't exist
-http_request <- function(user_name, social_media)
+get_status_code <- function(user_name, social_media)
 {
   # facebook
   if(social_media == "facebook"){
