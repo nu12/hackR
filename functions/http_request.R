@@ -8,25 +8,13 @@
 # 404: if the page doesn't exist
 get_status_code <- function(user_name, social_media)
 {
-  # facebook
-  if(social_media == "facebook"){
-    http_call <- httr::GET(paste0("https://www.facebook.com/",user_name))
-  }
-  # instagram
-  else if(social_media == "instagram"){
-    http_call <- httr::GET(paste0("https://www.instagram.com/",user_name))
-  }
-  # twitter
-  else if(social_media == "twitter"){
-    http_call <- httr::GET(paste0("https://twitter.com/",user_name))
-  }
-  # github
-  else if(social_media == "github"){
-    http_call <- httr::GET(paste0("https://github.com/",user_name))
-  }
+  social_media_address <- c(
+    "facebook"="https://www.facebook.com/",
+    "instagram"="https://www.instagram.com/",
+    "twitter"="https://twitter.com/",
+    "github"="https://github.com/")
 
-  # RETURN STATUS CODE
-  return(http_call$status_code)
+  return(httr::GET(paste0(social_media_address[social_media],user_name))$status_code)
 }
 
 
